@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Larp Mode</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: black;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 28px;
+            padding: 18px 36px;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+            background: #ff004c;
+            color: white;
+            z-index: 3;
+        }
+
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            display: none;
+            background: black;
+            z-index: 1;
+        }
+
+        .overlay-text {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 48px;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 0 0 20px rgba(0,0,0,0.8);
+            display: none;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="larpBtn" onclick="activateLarp()">Larp Mode</button>
+
+    <video id="larpVideo" src="larp.mp4" playsinline></video>
+
+    <div id="text" class="overlay-text">
+        i jus stole ur ip buddy 🤣
+    </div>
+
+    <script>
+        function activateLarp() {
+            const btn = document.getElementById("larpBtn");
+            const video = document.getElementById("larpVideo");
+            const text = document.getElementById("text");
+
+            btn.remove();
+            video.style.display = "block";
+            text.style.display = "block";
+
+            video.play();
+        }
+    </script>
+
+</body>
+</html>
